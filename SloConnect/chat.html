@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="sl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Klepet oblikovalske ekipe</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee8c",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: 100dvh;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+    <div class="relative flex h-screen w-full flex-col overflow-hidden">
+        <!-- TopAppBar -->
+        <header
+            class="sticky top-0 z-10 flex flex-col bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center p-4 justify-between" id="header-chat-list">
+                <a class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors"
+                    href="home.html">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </a>
+                <div class="flex flex-col items-center flex-1">
+                    <h2
+                        class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight text-center">
+                        Klepeti</h2>
+                </div>
+                <div class="flex items-center justify-end gap-1">
+                    <div
+                        class="flex size-10 items-center justify-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors"
+                        onclick="toggleSearchBar()">
+                        <span class="material-symbols-outlined">person_add</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room Header (Hidden by default) -->
+            <div class="flex items-center p-4 justify-between hidden" id="header-chat-room">
+                <div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors"
+                    id="back-to-list-btn">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </div>
+                <div class="flex flex-col items-center flex-1">
+                    <h2
+                        class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight text-center" id="room-title">
+                        Ime Skupine</h2>
+                    <p class="text-primary text-xs font-medium" id="room-subtitle">Skupina</p>
+                </div>
+                <div class="flex size-10 items-center justify-end cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors">
+                    <span class="material-symbols-outlined">more_vert</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- View: Chat List -->
+        <main class="flex-1 overflow-y-auto p-4 space-y-4 pb-24 flex flex-col hide-scrollbar" id="view-chat-list">
+            
+            <!-- Search Bar (Hidden by default) -->
+            <div id="friend-search-container" class="hidden transition-all duration-300 ease-in-out">
+                <div class="relative">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                    <input type="text" id="friend-search-input" class="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-sm transition-all" placeholder="Išči prijatelje po imenu...">
+                </div>
+            </div>
+
+            <!-- Group 1 -->
+            <a href="#" class="flex items-center gap-4 bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 transition-colors" onclick="openRoom('country')">
+                <div class="h-12 w-12 rounded-full overflow-hidden shrink-0 border border-slate-200">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8qOMPLrzeSU8occ-tYZUeyfOOpzkhq22rEJ0gsj3-4KJ5JXflKrORljBCrO0gg-DbDoxCiLcrFLS_Qky1q0ZM-hNaHFTSASXiMDhJVeN8y5xKh9kejeeI_4q-l4x2suNDdcmt5cC4ySVLe1na-t8ku_rpzLcbBMNHvOl-OAAUy7Xsf1cQsLzfmytcIoVMhie5ry21oE_70KL0fjJyHFTQ4pZ9SgvMx6VlA-JBrHjJgaFaombdUjtg9imN6G9G4WptWfF7MphjOHc" alt="Community" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-1">
+                    <h3 class="font-bold text-slate-900 dark:text-slate-100" id="chat-country-group-name">Moja skupnost</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-1">Nove poruke u grupi...</p>
+                </div>
+            </a>
+            
+            <!-- Group 2 -->
+            <a href="#" class="flex items-center gap-4 bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 transition-colors" onclick="openRoom('global')">
+                <div class="h-12 w-12 rounded-full overflow-hidden shrink-0 border border-slate-200">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBI0kMtGEbusv087k2mddTL3N-1iASaVtestfI_dA0DTQN4yoVQ6E4Sk5ujYoBxB_tmobMVihKbyJK1vegg0uAschTeJ59msM9fVKMJ5JmgI7IeuMvxUWj4baWfzBJOq2P1rTaboXDLE0N48E-BD0xK3IOfA8WSUYD0b-ZZF-HOh5TpIoEG-P8qx2-WaUlz9HzO6z25uUl0hMqk6GGryXs8fjbTs2guwMu7J6igQxvjstwujt1d7E2ONYZuH7lWG8wXeHCqG5vyJo" alt="Global" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-1">
+                    <h3 class="font-bold text-slate-900 dark:text-slate-100">Vsi tujci v Sloveniji</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-1">Pridruži se razpravi...</p>
+                </div>
+            </a>
+
+            <!-- Divider -->
+            <div class="w-full border-t border-slate-200 dark:border-slate-800 my-2 relative">
+                <span class="absolute left-1/2 -translate-x-1/2 -top-3 bg-background-light dark:bg-background-dark px-2 text-xs text-slate-500 font-bold uppercase tracking-wider">Zasebno</span>
+            </div>
+
+        </main>
+
+        <!-- View: Chat Room (Hidden by default) -->
+        <main class="flex-1 overflow-y-auto p-4 space-y-4 pb-32 flex flex-col hide-scrollbar hidden" id="view-chat-room">
+            <!-- Messages Container -->
+            <div id="messages-container" class="flex flex-col gap-4"></div>
+            
+            <!-- Empty State -->
+            <div class="flex-1 flex flex-col items-center justify-center text-center py-12 hidden" id="empty-state">
+                <div class="opacity-40 flex flex-col items-center gap-4">
+                    <div class="size-16 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-3xl">chat_bubble</span>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Ni še nobenih sporočil</p>
+                        <p class="text-xs text-slate-400 dark:text-slate-500">Bodite prvi in začnite pogovor.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Input Field Area (Only visible in chat room) -->
+        <footer
+            class="p-4 bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 fixed bottom-0 left-0 right-0 z-20 hidden" id="chat-footer-area">
+            
+            <!-- Input Area -->
+            <div id="chat-input-area" class="flex items-center gap-2 transition-all">
+                <button
+                    class="flex items-center justify-center size-10 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <span class="material-symbols-outlined">add</span>
+                </button>
+                <form
+                    class="flex-1 flex items-center bg-slate-100 dark:bg-slate-900 rounded-full px-4 py-1 border border-transparent focus-within:border-primary/50 transition-all"
+                    id="chat-form">
+                    <button class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                        type="button">
+                        <span class="material-symbols-outlined">sentiment_satisfied</span>
+                    </button>
+                    <input autocomplete="off"
+                        class="bg-transparent border-none focus:ring-0 flex-1 text-sm text-slate-900 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 px-3 py-2"
+                        id="message-input" placeholder="Vpišite sporočilo..." type="text" />
+                    <button class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                        type="button">
+                        <span class="material-symbols-outlined">photo_camera</span>
+                    </button>
+                </form>
+                <button
+                    class="flex items-center justify-center size-10 rounded-full bg-primary text-slate-900 shadow-md hover:scale-105 active:scale-95 transition-transform"
+                    id="send-button">
+                    <span class="material-symbols-outlined">send</span>
+                </button>
+            </div>
+            <!-- Bottom notch spacer for mobile -->
+            <div class="h-2"></div>
+        </footer>
+        <!-- Navigation -->
+        <nav id="bottom-nav"
+            class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pb-safe z-50">
+            <div class="max-w-xl mx-auto flex justify-around items-center h-16">
+                <a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors"
+                    href="home.html">
+                    <span class="material-symbols-outlined">home</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Domov</span>
+                </a>
+                <a class="flex flex-col items-center gap-1 text-primary" href="chat.html">
+                    <span class="material-symbols-outlined fill-1">chat_bubble</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Klepet</span>
+                </a>
+                <a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors"
+                    href="profile.html">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Profil</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+    <script>
+        const chatForm = document.getElementById('chat-form');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+        const chatMessages = document.getElementById('messages-container');
+        const emptyState = document.getElementById('empty-state');
+        
+        // Navigation Elements
+        const viewList = document.getElementById('view-chat-list');
+        const viewRoom = document.getElementById('view-chat-room');
+        const headerList = document.getElementById('header-chat-list');
+        const headerRoom = document.getElementById('header-chat-room');
+        const footerArea = document.getElementById('chat-footer-area');
+        const bottomNav = document.getElementById('bottom-nav');
+        
+        // Room Metadata elements
+        const roomTitle = document.getElementById('room-title');
+        const roomSubtitle = document.getElementById('room-subtitle');
+        const backToListBtn = document.getElementById('back-to-list-btn');
+
+        const friendSearchContainer = document.getElementById('friend-search-container');
+        const friendSearchInput = document.getElementById('friend-search-input');
+
+        window.toggleSearchBar = function() {
+            if (friendSearchContainer.classList.contains('hidden')) {
+                friendSearchContainer.classList.remove('hidden');
+                friendSearchInput.focus();
+            } else {
+                friendSearchContainer.classList.add('hidden');
+                friendSearchInput.value = '';
+            }
+        };
+
+        backToListBtn.addEventListener('click', () => {
+            viewRoom.classList.add('hidden');
+            headerRoom.classList.add('hidden');
+            footerArea.classList.add('hidden');
+            
+            viewList.classList.remove('hidden');
+            headerList.classList.remove('hidden');
+            bottomNav.classList.remove('hidden');
+        });
+
+        let currentRoom = '';
+
+        // Mock message arrays in Slovenian
+        const defaultMessagesCountry = [
+            { sender: 'other', name: 'Ana', text: 'Živijo vsem! Je kdo danes za kavo?' },
+            { sender: 'other', name: 'Marko', text: 'Jaz lahko po 17. uri, kje se dobimo?' },
+            { sender: 'other', name: 'Ana', text: 'V centru, pri Tromostovju?' },
+            { sender: 'me', name: 'Jaz', text: 'Lahko, se vidimo tam!' },
+            { sender: 'other', name: 'Ivan', text: 'Se pridružim.' },
+            { sender: 'other', name: 'Jelena', text: 'Je še prostor za eno?' },
+            { sender: 'other', name: 'Ana', text: 'Seveda, vsi ste dobrodošli!' },
+            { sender: 'me', name: 'Jaz', text: 'Koliko nas je potem skupaj?' },
+            { sender: 'other', name: 'Marko', text: 'Okoli 5 za zdaj.' },
+            { sender: 'other', name: 'Ana', text: 'Super ekipa.' }
+        ];
+
+        const defaultMessagesGlobal = [
+            { sender: 'other', name: 'John', text: 'A kdo pozna dobrega mehanika v Ljubljani?' },
+            { sender: 'other', name: 'Emma', text: 'Jaz sem šla k enemu v Šiški, zelo ugodne cene.' },
+            { sender: 'me', name: 'Jaz', text: 'Lahko deliš naslov?' },
+            { sender: 'other', name: 'Emma', text: 'Seveda, samo da najdem povezavo na Google Maps.' },
+            { sender: 'other', name: 'Luis', text: 'Tudi jaz iščem mehanika, se pridružujem temi.' },
+            { sender: 'other', name: 'Emma', text: 'Tukaj je: [Povezava]' },
+            { sender: 'me', name: 'Jaz', text: 'Hvala Emma!' },
+            { sender: 'other', name: 'Luis', text: 'Cenim to, Emma. Ali govorita angleško?' },
+            { sender: 'other', name: 'Emma', text: 'Ja, oba fanta tam govorita popolno angleško.' },
+            { sender: 'other', name: 'John', text: 'Odlično, to si bom shranil za kasneje.' }
+        ];
+
+        function getRoomMessages(room) {
+            let storageKey = 'messages_' + room;
+            if (room === 'country') {
+                const cName = localStorage.getItem('profileCountry') || 'Vaša_država';
+                storageKey += '_' + cName.replace(/\s+/g, '_');
+            }
+
+            const saved = localStorage.getItem(storageKey);
+            if(saved) {
+                return JSON.parse(saved);
+            }
+            // If not saved, use defaults and save them
+            const defaults = room === 'country' ? defaultMessagesCountry : defaultMessagesGlobal;
+            localStorage.setItem(storageKey, JSON.stringify(defaults));
+            return defaults;
+        }
+
+        function saveRoomMessages(room, messages) {
+            let storageKey = 'messages_' + room;
+            if (room === 'country') {
+                const cName = localStorage.getItem('profileCountry') || 'Vaša_država';
+                storageKey += '_' + cName.replace(/\s+/g, '_');
+            }
+            // Keep last 50 messages to avoid local storage overflow, but user asked to keep history
+            const toSave = messages.slice(-50); 
+            localStorage.setItem(storageKey, JSON.stringify(toSave));
+        }
+
+        function renderMessagesList(messages) {
+            chatMessages.innerHTML = '';
+            
+            if(messages.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            
+            emptyState.classList.add('hidden');
+            
+            messages.forEach((msg, idx) => {
+                const messageDiv = document.createElement('div');
+                
+                // Real time if it has one, or mock time
+                const timeStr = msg.time || `1${idx % 10}:00`; 
+                
+                if(msg.sender === 'me') {
+                    messageDiv.className = 'flex flex-col items-end self-end max-w-[80%]';
+                    messageDiv.innerHTML = `
+                        <div class="bg-primary text-slate-900 px-4 py-2 rounded-xl rounded-tr-none shadow-sm">
+                            <p class="text-sm">${msg.text}</p>
+                        </div>
+                        <span class="text-[10px] text-slate-400 mt-1 mr-1">${timeStr}</span>
+                    `;
+                } else {
+                    messageDiv.className = 'flex flex-col items-start self-start max-w-[80%]';
+                    messageDiv.innerHTML = `
+                        <span class="text-xs font-bold text-slate-500 ml-1 mb-1">${msg.name}</span>
+                        <div class="bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-4 py-2 rounded-xl rounded-tl-none shadow-sm">
+                            <p class="text-sm">${msg.text}</p>
+                        </div>
+                        <span class="text-[10px] text-slate-400 mt-1 ml-1">${timeStr}</span>
+                    `;
+                }
+                chatMessages.appendChild(messageDiv);
+            });
+            
+            // Scroll to bottom
+            setTimeout(() => {
+                 viewRoom.scrollTo({
+                    top: viewRoom.scrollHeight,
+                    behavior: 'auto'
+                });
+            }, 10);
+        }
+
+        window.openRoom = function(roomType) {
+            currentRoom = roomType;
+            // Setup UI
+            viewList.classList.add('hidden');
+            headerList.classList.add('hidden');
+            bottomNav.classList.add('hidden');
+            
+            viewRoom.classList.remove('hidden');
+            headerRoom.classList.remove('hidden');
+            footerArea.classList.remove('hidden');
+            
+            const msgs = getRoomMessages(roomType);
+
+            // Set Titles and Load Messages
+            if(roomType === 'country') {
+                const cName = localStorage.getItem('profileCountry') || 'Vaša država';
+                roomTitle.textContent = `${cName} v Sloveniji`;
+                roomSubtitle.textContent = 'Skupnost';
+                renderMessagesList(msgs);
+            } else if(roomType === 'global') {
+                roomTitle.textContent = 'Vsi tujci v Sloveniji';
+                roomSubtitle.textContent = 'Globalna Skupina';
+                renderMessagesList(msgs);
+            }
+        };
+
+        function addMessage(text) {
+            if (!text.trim() || !currentRoom) return;
+
+            emptyState.classList.add('hidden');
+
+            const now = new Date();
+            const timeStr = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+
+            const newMsg = {
+                sender: 'me',
+                name: 'Jaz',
+                text: text,
+                time: timeStr
+            };
+
+            // Save to localStorage
+            const msgs = getRoomMessages(currentRoom);
+            msgs.push(newMsg);
+            saveRoomMessages(currentRoom, msgs);
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex flex-col items-end self-end max-w-[80%]';
+
+            messageDiv.innerHTML = `
+            <div class="bg-primary text-slate-900 px-4 py-2 rounded-xl rounded-tr-none shadow-sm">
+                <p class="text-sm">${text}</p>
+            </div>
+            <span class="text-[10px] text-slate-400 mt-1 mr-1">${timeStr}</span>
+        `;
+
+            chatMessages.appendChild(messageDiv);
+            messageInput.value = '';
+
+            // Scroll to bottom
+            viewRoom.scrollTo({
+                top: viewRoom.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        sendButton.addEventListener('click', () => addMessage(messageInput.value));
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            addMessage(messageInput.value);
+        });
+
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addMessage(messageInput.value);
+            }
+        });
+
+        window.addEventListener('load', () => {
+            const savedCountry = localStorage.getItem('profileCountry');
+            if(savedCountry) {
+                const countryGroupEl = document.getElementById('chat-country-group-name');
+                if(countryGroupEl) countryGroupEl.textContent = `${savedCountry} v Sloveniji`;
+            }
+        });
+    </script>
+</body>
+
+</html>

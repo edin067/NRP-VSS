@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="sl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee8c",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .material-symbols-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+    <div
+        class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-white dark:bg-slate-950 shadow-xl">
+        <!-- Header -->
+        <div class="flex items-center p-4 pb-2 justify-between">
+            <div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center justify-start cursor-pointer"
+                onclick="window.location.href='home.html'">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </div>
+            <h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center">Uredi profil</h2>
+            <div class="size-12 flex items-center justify-end">
+                <!-- Settings icon removed as requested -->
+            </div>
+        </div>
+        <!-- Profile Picture Section -->
+        <div class="flex p-6 @container">
+            <div class="flex w-full flex-col gap-4 items-center">
+                <div class="relative flex flex-col items-center">
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 border-4 border-primary/20"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBW8PoQIZfHHuDjZ1EOncxJx9-E4DF4k1IU4PLZCkxOzfTQn3YNmm_l3W8esg_fT47PbGsGh_Pzq6GmL_mQsrnNOIduvE6SgOqKCvlSOAhL3JnLNk_Klp5kvyqQabK4nQ1q1YSdPlHqwZ4yCFnlb9TauXoXEYtsCOR5MFL2BuPP6iwJ-7mHQHM-k4FdKPXuDiAuWfjZHOGr-7cgX60aHygI02rbj9oZGPTWOk88ND5v7xnOhXxSsjrmnr4J6vRj9dzxLDFKD_OnI00");'>
+                    </div>
+                    <button
+                        class="absolute bottom-0 right-0 bg-primary text-slate-900 rounded-full p-2 shadow-lg border-2 border-white dark:border-slate-950 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-sm">edit</span>
+                    </button>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <p class="text-2xl font-bold leading-tight tracking-tight text-center" id="display-name">Janez Novak</p>
+                    <p class="text-primary font-medium text-sm text-center">Član od jan. 2024</p>
+                </div>
+            </div>
+        </div>
+        <!-- Form Fields -->
+        <div class="px-6 space-y-4">
+            <div class="flex flex-col w-full">
+                <label class="text-slate-700 dark:text-slate-300 text-sm font-semibold pb-1.5 ml-1">Polno ime</label>
+                <div class="relative">
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">person</span>
+                    <input id="profile-name"
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 py-3.5 pl-12 pr-4 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                        placeholder="Janez Novak" type="text" value="Janez Novak" />
+                </div>
+            </div>
+            <div class="flex flex-col w-full">
+                <label class="text-slate-700 dark:text-slate-300 text-sm font-semibold pb-1.5 ml-1">E-poštni
+                    naslov</label>
+                <div class="relative">
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">mail</span>
+                    <input id="profile-email"
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 py-3.5 pl-12 pr-4 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                        placeholder="janez.novak@example.com" type="email" value="janez.novak@example.com" />
+                </div>
+            </div>
+            <div class="flex flex-col w-full">
+                <label class="text-slate-700 dark:text-slate-300 text-sm font-semibold pb-1.5 ml-1">Telefonska
+                    številka</label>
+                <div class="relative">
+                    <input id="profile-phone"
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 py-3.5 pl-12 pr-4 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                        placeholder="Npr. +38640123456" type="tel" value="" maxlength="13" oninput="let nums = this.value.replace(/[^0-9]/g, ''); this.value = nums ? '+' + nums : '';" />
+                </div>
+            </div>
+            <div class="flex flex-col w-full">
+                <label class="text-slate-700 dark:text-slate-300 text-sm font-semibold pb-1.5 ml-1">Datum
+                    rojstva</label>
+                <div class="relative">
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">calendar_today</span>
+                    <input id="profile-dob"
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 py-3.5 pl-12 pr-4 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                        type="date" value="" />
+                </div>
+            </div>
+        </div>
+        <!-- Action Button -->
+        <div class="p-6 mt-8 flex flex-col gap-3">
+            <button id="save-profile-btn"
+                class="w-full bg-primary hover:bg-primary/90 text-slate-900 font-bold py-4 rounded-xl shadow-lg shadow-primary/30 transition-all active:scale-[0.98] text-lg uppercase tracking-wide">Shrani
+                spremembe</button>
+            <button id="logout-btn"
+                class="w-full bg-red-50 dark:bg-red-500/10 text-red-500 border-2 border-red-500 font-bold py-4 rounded-xl shadow-lg transition-all active:scale-[0.98] text-lg uppercase tracking-wide">Odjava</button>
+        </div>
+        <!-- Bottom Spacing for Nav -->
+        <div class="h-20"></div>
+        <!-- Bottom Navigation Bar -->
+        <div
+            class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 flex justify-around items-center py-3 px-2 z-50">
+            <a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors"
+                href="home.html">
+                <span class="material-symbols-outlined">home</span>
+                <span class="text-[10px] font-bold">Domov</span>
+            </a>
+            <a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors"
+                href="chat.html">
+                <span class="material-symbols-outlined">chat</span>
+                <span class="text-[10px] font-bold">Klepet</span>
+            </a>
+            <a class="flex flex-col items-center gap-1 text-primary" href="profile.html">
+                <span class="material-symbols-outlined material-symbols-fill">person</span>
+                <span class="text-[10px] font-bold">Profil</span>
+            </a>
+        </div>
+    </div>
+    <script>
+        // Load Data
+        window.addEventListener('load', () => {
+            const savedName = localStorage.getItem('profileName');
+            const savedEmail = localStorage.getItem('profileEmail');
+            const savedPhone = localStorage.getItem('profilePhone');
+            const savedDob = localStorage.getItem('profileDob');
+            const savedImage = localStorage.getItem('profileImage');
+
+            const nameInput = document.getElementById('profile-name');
+            const emailInput = document.getElementById('profile-email');
+            const phoneInput = document.getElementById('profile-phone');
+            const dobInput = document.getElementById('profile-dob');
+            const displayName = document.getElementById('display-name');
+            const imagePreview = document.querySelector('.bg-center.bg-no-repeat.aspect-square');
+
+            if(savedName) {
+                if(nameInput) nameInput.value = savedName;
+                if(displayName) displayName.textContent = savedName;
+            }
+            if(savedEmail && emailInput) emailInput.value = savedEmail;
+            if(savedPhone && phoneInput) phoneInput.value = savedPhone;
+            if(savedDob && dobInput) dobInput.value = savedDob;
+            if(savedImage && imagePreview) imagePreview.style.backgroundImage = `url('${savedImage}')`;
+        });
+
+        // Save Data
+        const saveBtn = document.getElementById('save-profile-btn');
+        if(saveBtn) {
+            saveBtn.addEventListener('click', () => {
+                const nameInput = document.getElementById('profile-name');
+                const emailInput = document.getElementById('profile-email');
+                const phoneInput = document.getElementById('profile-phone');
+                const dobInput = document.getElementById('profile-dob');
+
+                if(nameInput) localStorage.setItem('profileName', nameInput.value);
+                if(emailInput) localStorage.setItem('profileEmail', emailInput.value);
+                if(phoneInput) localStorage.setItem('profilePhone', phoneInput.value);
+                if(dobInput) localStorage.setItem('profileDob', dobInput.value);
+
+                alert('Spremembe so bile uspešno shranjene!');
+                window.location.href = 'home.html';
+            });
+        }
+
+        // Logout
+        const logoutBtn = document.getElementById('logout-btn');
+        if(logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                if(confirm('Ali ste prepričani, da se želite odjaviti?')) {
+                    localStorage.clear();
+                    window.location.href = 'login.html';
+                }
+            });
+        }
+
+        // Profile Image Upload
+        const uploadBtn = document.querySelector('button.absolute.bottom-0.right-0');
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+        fileInput.style.display = 'none';
+        document.body.appendChild(fileInput);
+
+        if (uploadBtn) {
+            uploadBtn.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(evt) {
+                        const imagePreview = document.querySelector('.bg-center.bg-no-repeat.aspect-square');
+                        if(imagePreview) imagePreview.style.backgroundImage = `url('${evt.target.result}')`;
+                        localStorage.setItem('profileImage', evt.target.result);
+                    }
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

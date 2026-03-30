@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SloConnect - Join the Community</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: 100dvh;
+        }
+
+        .screen-hidden {
+            display: none !important;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+    <!-- SCREEN: LOGIN (SCREEN_5) -->
+    <section class="min-h-screen flex items-center justify-center p-4" id="screen-login">
+        <div
+            class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-slate-900 shadow-2xl rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+            <div
+                class="hidden md:flex flex-col justify-center items-center p-12 bg-primary/10 dark:bg-primary/5 border-r border-slate-200 dark:border-slate-800 relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+                <div class="relative z-10 text-center">
+                    <img alt="SloConnect Community"
+                        class="w-full max-w-sm rounded-xl shadow-lg mb-8 object-cover aspect-square"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUVthax4PJG72mzKi0r3Uw_XadnpxKUe5u094ty2I-I9fp6lYmUwhRX_rTWFrjc0ZsHjUX-n6rofaVKSpNXltUnwajA3SigGBttRFa2qM8GAjBtV1-A2jyhbExlvYAWN8KVc_4EP_KCKx7sLTimmnDHDT9HWPLiQSL5Ac0Wil2w2yJk4H5wwp_Ge6YBh8heUYbensZoaLRlo0q1XPb1w0g5j5IvJkCDR5p5uy4iqWFMwbGQ8TBfkBx1_CVHbD2jSKbcggssM5pQJ2H" />
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">Connect Smarter.</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg">Join SloConnect and experience a community
+                        built on meaningful interactions and shared growth.</p>
+                </div>
+            </div>
+            <div class="p-8 md:p-12 flex flex-col justify-center">
+                <div class="mb-8">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                            <span class="material-icons text-white">hub</span>
+                        </div>
+                        <span
+                            class="text-2xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">SloConnect</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">Create your account</h1>
+                    <p class="text-slate-500 dark:text-slate-400">Join thousands of members worldwide today.</p>
+                </div>
+                <form class="space-y-5" id="login-form">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300"
+                            for="full-name">Full Name</label>
+                        <div class="relative">
+                            <span
+                                class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">person</span>
+                            <input
+                                class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-slate-900 dark:text-slate-100 transition-all outline-none"
+                                id="full-name" placeholder="John Doe" required="" type="text" />
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300" for="email">Email
+                            Address</label>
+                        <div class="relative">
+                            <span
+                                class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">mail</span>
+                            <input
+                                class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-slate-900 dark:text-slate-100 transition-all outline-none"
+                                id="email" placeholder="john@example.com" required="" type="email" />
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300"
+                            for="country">Country</label>
+                        <div class="relative">
+                            <span
+                                class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">public</span>
+                            <select
+                                class="w-full pl-10 pr-10 py-3 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-slate-900 dark:text-slate-100 transition-all outline-none appearance-none"
+                                id="country" required="">
+                                <option value="">Select your country</option>
+                                <option value="Albanija">Albanija</option>
+                                <option value="Bosna in Hercegovina">Bosna in Hercegovina</option>
+                                <option value="Črna gora">Črna gora</option>
+                                <option value="France">Francija</option>
+                                <option value="Hrvaška">Hrvaška</option>
+                                <option value="Italy">Italija</option>
+                                <option value="Kosovo">Kosovo</option>
+                                <option value="Germany">Nemčija</option>
+                                <option value="Severna Makedonija">Severna Makedonija</option>
+                                <option value="Srbija">Srbija</option>
+                                <option value="United States">Združene države (US)</option>
+                                <option value="United Kingdom">Združeno kraljestvo (UK)</option>
+                                <option value="Ostalo">Drugo</option>
+                            </select>
+                            <span
+                                class="material-icons absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 py-2">
+                        <input class="mt-1 rounded border-slate-300 text-primary focus:ring-primary" id="terms"
+                            required="" type="checkbox" />
+                        <label class="text-sm text-slate-500 dark:text-slate-400" for="terms">
+                            I agree to the <a class="text-primary hover:underline font-medium" href="#">Terms of
+                                Service</a> and <a class="text-primary hover:underline font-medium" href="#">Privacy
+                                Policy</a>.
+                        </label>
+                    </div>
+                    <button
+                        class="w-full bg-primary hover:bg-primary/90 text-slate-900 font-bold py-4 rounded-lg shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+                        type="submit">
+                        <span>Get Started</span>
+                        <span class="material-icons">arrow_forward</span>
+                    </button>
+                </form>
+                <div class="mt-8 text-center text-sm text-slate-500">
+                    Already have an account? <a class="text-primary font-semibold hover:underline" href="#">Log in</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- APP CONTENT WRAPPER (HIDDEN BY DEFAULT) -->
+    <div class="screen-hidden" id="app-content">
+        <!-- SCREEN: HOME (SCREEN_4) -->
+        <section class="screen-hidden min-h-screen pb-24" id="screen-home">
+            <header
+                class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+                <div class="flex items-center p-4 justify-between max-w-2xl mx-auto">
+                    <div class="flex size-12 shrink-0 items-center">
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDL532uuEebD95hPdA-_g57ehpCDvo0-9PSDUyFzngpMDVhHNKTXGpG7mTyICkDQq53zG0qDAAnOEhBcN5e5Mv6h2PWsk1FaIqFeDQgk7xLDGop8zFccbBXZPN6MSqUbq8CTB_UL_-_ZFyzrBkqZ2BLgizqjr1NCfxXDXEkvbIhcNg_rwk89Ri7KTNyYoxdPf3R1700Jd6OaQ6aOfadW508Fw4jAIJtuP8DPMppRl2oWATai_K-h7kXmIj3XhhlO8PdF3rqmuyBz4pT");'>
+                        </div>
+                    </div>
+                    <div class="flex-1 ml-3">
+                        <p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Good morning,</p>
+                        <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight"
+                            id="home-user-name">User</h2>
+                    </div>
+                    <button
+                        class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-slate-900 dark:text-slate-100"><span
+                            class="material-symbols-outlined">notifications</span></button>
+                </div>
+            </header>
+            <main class="max-w-2xl mx-auto px-4">
+                <div class="mt-6">
+                    <div class="relative">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                        <input
+                            class="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-800 border-none rounded-xl shadow-sm focus:ring-2 focus:ring-primary text-sm"
+                            placeholder="Find people or events..." type="text" />
+                    </div>
+                </div>
+                <section class="mt-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold tracking-tight"
+                            id="home-expat-header">Expats from your country</h2>
+                        <a class="text-primary text-sm font-semibold" href="#">See all</a>
+                    </div>
+                    <div class="flex overflow-x-auto gap-4 pb-4 no-scrollbar -mx-4 px-4 snap-x">
+                        <div
+                            class="flex-none w-36 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 snap-start text-center">
+                            <div class="relative mx-auto mb-3">
+                                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-20 h-20 mx-auto"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCHabYAx2S32m_6MObzTlwm3mTw5QYux0NPYUmqNGc7Qupv7ZEf9TWtjL-HDVLi8ko9SX04xTsgg5Rj1PXFJgIggjGePYBqorC-kNJw8KIURgTOcCxjuxjHNq7nHYRNbvjHE947fqImqrSkih3eF7hXjgI2fyFLcckxgeO_xSvJuNTbSrDTIw8BmbE0JwIgVOh9Ck16v_7MGhySaSFKUGZ1IaPSE16W2JRWRVD45beiUo-Rb6rLxDIMPS-8SDFHbrxq-Xv6-OoEImvT");'>
+                                </div>
+                                <div
+                                    class="absolute bottom-0 right-1/4 w-4 h-4 bg-primary border-2 border-white dark:border-slate-800 rounded-full">
+                                </div>
+                            </div>
+                            <p class="text-slate-900 dark:text-slate-100 text-sm font-bold truncate">Sarah M.</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-xs">Ljubljana</p>
+                        </div>
+                        <div
+                            class="flex-none w-36 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 snap-start text-center">
+                            <div class="mx-auto mb-3">
+                                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-20 h-20 mx-auto"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDw26SmRXg6C-aO2ZgyyWP9SeiFn4Xvkkid0nf-ZzM9jaE-wNL7ZLrKaViN_zfsoJGdlHsZ4VLzdl-xd3cSB4Z7oO4y5Tp3BTGB6aUSYkeyWsl4djqQ2TEuhCIkBVQohQx-vkHoioslAw3BNBO3P_Hbz-o2WB0NCeG1U2EEecCXR0RqIPN5ewfz6GyG1xjqWdQsIZiGmSiGEin4IcE1rPSd41kRTg2RGt8-bP0zw0cXFl2kpXf0YHTsuQYvavJaCUESsgaMsuGiT-ih");'>
+                                </div>
+                            </div>
+                            <p class="text-slate-900 dark:text-slate-100 text-sm font-bold truncate">Michael R.</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-xs">Maribor</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="mt-8">
+                    <h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold tracking-tight mb-4">Quick Resources
+                    </h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="bg-primary/10 dark:bg-primary/5 p-4 rounded-2xl border border-primary/20 flex flex-col gap-2">
+                            <span class="material-symbols-outlined text-primary text-3xl">map</span><span
+                                class="font-bold text-sm">City Guides</span>
+                        </div>
+                        <div
+                            class="bg-primary/10 dark:bg-primary/5 p-4 rounded-2xl border border-primary/20 flex flex-col gap-2">
+                            <span class="material-symbols-outlined text-primary text-3xl">event</span><span
+                                class="font-bold text-sm">Meetups</span>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </section>
+        <!-- SCREEN: CHATS (SCREEN_3) -->
+        <section
+            class="screen-hidden flex flex-col h-screen overflow-hidden max-w-md mx-auto bg-white dark:bg-slate-900 shadow-2xl"
+            id="screen-chats">
+            <header
+                class="flex items-center bg-background-light dark:bg-background-dark p-4 border-b border-primary/10 justify-between sticky top-0 z-10">
+                <div class="text-primary flex size-10 items-center justify-center"><span
+                        class="material-symbols-outlined">menu</span></div>
+                <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold flex-1 px-3">Chat Hub</h2>
+                <button class="flex items-center justify-center rounded-full size-10 bg-primary/10 text-primary"><span
+                        class="material-symbols-outlined">search</span></button>
+            </header>
+            <div class="flex-1 overflow-y-auto">
+                <div class="flex items-center gap-4 bg-primary/10 px-4 py-3 cursor-pointer border-b border-primary/5">
+                    <div class="aspect-square bg-cover rounded-full h-12 w-12 border-2 border-primary"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCzOtVz_SsIhOltYNeoejFbA6aSxlvLSIdxA-jThOGTO-dnla_03k_nntKnjTO7jTAJYmRur1s_14EvOABkzBZXQd5l8sVmqImAYBsAwoSpSzttoLFk8M7A3KCZIovbROkgk2Gd8Rl1YzpKMAgC6myQ2bYLXdKdmbR6VJWum0SPUq5Vc9eklY_S5G0sDeQLbGM-F79NoVdllMujMQNV1woanv2UvN6b_FUBZwhDje-BcON5E2-P3EB6GKoDmEZ7qBZhrrrbLpVCsDYV");'>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-baseline">
+                            <p class="font-semibold">UK Community</p><span class="text-xs text-primary font-bold">Just
+                                now</span>
+                        </div>
+                        <p class="text-sm font-semibold truncate">Sarah: Anyone meeting tonight?</p>
+                    </div>
+                </div>
+                <!-- More mock items could go here -->
+            </div>
+        </section>
+        <!-- SCREEN: PROFILE (SCREEN_2) -->
+        <section
+            class="screen-hidden flex flex-col min-h-screen max-w-lg mx-auto bg-background-light dark:bg-background-dark shadow-xl"
+            id="screen-profile">
+            <header
+                class="flex items-center p-4 justify-between sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+                <h2 class="text-xl font-bold">Profile Management</h2>
+                <button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-200 dark:bg-slate-800"
+                    id="profile-back-btn"><span class="material-symbols-outlined">arrow_back</span></button>
+            </header>
+            <main class="flex-1 overflow-y-auto pb-32">
+                <div class="flex p-6 flex-col items-center gap-6">
+                    <div class="relative">
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 ring-4 ring-primary/20"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_G6knV3g9k-LmdPkqH-X8FaGQAG3vH12COPPcYC0lzImdLoXSVQC3z8QKLnUKy06rgsEIBsl1JyKmpUi7SGyqV_onB7ip4XhmohX3SmINzHUhoFDmiFlJMsZi3DoCjLp1f96pkJt3-Vl43fxgyL-SgNUvR2Ydeu4t8NLeIzSzyLzKifzNoNHRT7vCnon3a8zqnhKQJqBPqI2q0WEmuS6KtxpF3CUS_-jOSz7drNmjmD7dT75-o5YzJssu87ilbJclJqZ7UMB585qC");'>
+                        </div>
+                        <button
+                            class="absolute bottom-0 right-0 h-10 w-10 bg-primary text-slate-900 rounded-full border-4 border-background-light"><span
+                                class="material-symbols-outlined">upload</span></button>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold" id="profile-display-name">SloConnect User</p>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">Update your information</p>
+                    </div>
+                </div>
+                <div class="space-y-3 px-4">
+                    <div
+                        class="flex items-center gap-4 bg-white dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200">
+                        <span class="material-symbols-outlined text-primary">person</span>
+                        <div class="flex-1">
+                            <p class="text-[10px] font-semibold text-slate-500 uppercase">Name</p>
+                            <input class="bg-transparent border-none p-0 focus:ring-0 w-full font-medium"
+                                id="profile-input-name" type="text" value="John Doe" />
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 bg-white dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200">
+                        <span class="material-symbols-outlined text-primary">public</span>
+                        <div class="flex-1">
+                            <p class="text-[10px] font-semibold text-slate-500 uppercase">Country</p>
+                            <input class="bg-transparent border-none p-0 focus:ring-0 w-full font-medium"
+                                id="profile-input-country" readonly="" type="text" value="United Kingdom" />
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 px-4">
+                    <button
+                        class="w-full p-4 text-red-500 font-semibold border-2 border-dashed border-red-500/20 rounded-xl">Deactivate
+                        Account</button>
+                </div>
+            </main>
+            <footer
+                class="fixed bottom-24 left-0 right-0 max-w-lg mx-auto p-4 bg-background-light dark:bg-background-dark">
+                <button class="w-full bg-primary text-slate-900 font-bold py-4 rounded-xl shadow-lg">Save
+                    Changes</button>
+            </footer>
+        </section>
+        <!-- SHARED NAVIGATION BAR (Bottom) -->
+        <nav
+            class="fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-slate-100 dark:border-slate-800 px-6 pb-6 pt-3">
+            <div class="flex justify-between items-center max-w-2xl mx-auto">
+                <button class="nav-btn flex flex-col items-center gap-1 text-primary" data-target="screen-home"
+                    onclick="navigateTo('screen-home')">
+                    <span class="material-symbols-outlined fill-1">home</span>
+                    <span class="text-[10px] font-bold uppercase">Home</span>
+                </button>
+                <button class="nav-btn flex flex-col items-center gap-1 text-slate-400" data-target="screen-chats"
+                    onclick="navigateTo('screen-chats')">
+                    <span class="material-symbols-outlined">chat_bubble</span>
+                    <span class="text-[10px] font-bold uppercase">Chat</span>
+                </button>
+                <button class="nav-btn flex flex-col items-center gap-1 text-slate-400">
+                    <span class="material-symbols-outlined">explore</span>
+                    <span class="text-[10px] font-bold uppercase">Discover</span>
+                </button>
+                <button class="nav-btn flex flex-col items-center gap-1 text-slate-400" data-target="screen-profile"
+                    onclick="navigateTo('screen-profile')">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="text-[10px] font-bold uppercase">Profile</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <script>
+        // Handle Login Submit
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('full-name').value;
+            const country = document.getElementById('country').value;
+            const email = document.getElementById('email').value;
+
+            // Save to LocalStorage
+            localStorage.setItem('profileName', name);
+            localStorage.setItem('profileCountry', country);
+            localStorage.setItem('profileEmail', email);
+
+            // Redirect to standalone Home Page
+            window.location.href = 'home.html';
+        });
+    </script>
+</body>
+
+</html>
