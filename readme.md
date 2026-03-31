@@ -128,3 +128,6 @@ Od študentov se pričakuje:
 * spoštovanje rokov.
 
 Predmet simulira **realno okolje razvoja IT produkta**, zato sta doslednost in profesionalen pristop ključna.
+
+
+https://docs.google.com/presentation/d/1K4ew6ys0EUUaOPtBmJ6gwjfNHSUQ1Lcb/edit?usp=share_link&ouid=114920405309017653495&rtpof=true&sd=true
